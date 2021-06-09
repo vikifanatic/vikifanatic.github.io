@@ -5,7 +5,7 @@
 </head>
 <body>
 <script type="text/javascript">
-    /*window.onload = function () {
+    window.onload = function () {
         var bot = document.getElementById('interactable-object');
         bot.addEventListener('touchstart', function () {
             console.log("Triggering touch event for iOS related issues.");
@@ -18,7 +18,7 @@
             event.initEvent('touchstart', true, true);
             el.dispatchEvent(event);
         }
-    }*/
+    }
 
     const showNotification = () => {
         console.log("CREATEJS Triggered");
@@ -40,8 +40,8 @@
         showNotification();
     }, 5000);
 </script>
-<span id="interactable-object">This is a test based on CREATEJS</span>
+<span>This is a test based on CREATEJS</span>
 <br><br>
-<button onclick="showNotification()">Click Me</button>
+<button id="interactable-object" onclick="showNotification()">Click Me</button>
 </body>
 </html>
