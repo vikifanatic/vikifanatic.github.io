@@ -26,7 +26,7 @@
         console.log("CREATEJS Triggered");
         createjs.Sound.on("fileload", handleLoadComplete);
         createjs.Sound.alternateExtensions = ["mp3"];
-        createjs.Sound.registerSound({src:"https://shop.delivery.rakuten.co.jp/rdsf/sound/ordernotification.mp3", id:"sound"});
+        createjs.Sound.registerSound({src:"ordernotification.mp3", id:"sound"});
 
         const loopCount = 1;
         function handleLoadComplete(event) {
