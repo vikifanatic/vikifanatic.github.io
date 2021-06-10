@@ -4,6 +4,12 @@
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 </head>
 <body>
+    <style>
+        button {
+            width: 100%;
+            height: 150px;
+        }
+    </style>
 <script type="text/javascript">
     /*window.onload = function () {
         var bot = document.getElementById('interactable-object');
@@ -36,13 +42,27 @@
         //alert('order has arrived');
     }
 
+    const loadNotificationSound = () => {
+        console.log("Sound Loading Triggered");
+        createjs.Sound.on("fileload", handleLoadComplete);
+        createjs.Sound.alternateExtensions = ["mp3"];
+        createjs.Sound.registerSound({src:"ordernotification.mp3", id:"sound"});
+
+        function handleLoadComplete(event) {
+            console.log("Sound has been loaded.");
+        }
+    }
+
     setInterval(function() {
         showNotification();
     }, 5000);
 </script>
 <span>This is a test based on CREATEJS</span>
 <br><br>
-<!--<button id="interactable-object" onclick="showNotification()">This plays sound</button>-->
+<button id="interactable-object" onclick="showNotification()">This plays sound</button>
+<br><br>
+<button id="interactable-object" onclick="loadNotificationSound()">This preloads sound</button>
+<br><br>
 <button>This does absolutely nothing</button>
 </body>
 </html>
