@@ -42,6 +42,18 @@
         //alert('order has arrived');
     }
 
+    const loadZeroVolumeNotificationSound = () => {
+        console.log("Sound Loading Triggered");
+        createjs.Sound.on("fileload", handleLoadComplete);
+        createjs.Sound.alternateExtensions = ["mp3"];
+        createjs.Sound.registerSound({src:"ordernotification.mp3", id:"sound"});
+
+        function handleLoadComplete(event) {
+            createjs.Sound.play("sound").volume = 0;
+        }
+        createjs.Sound.stop();
+    }
+
     const loadNotificationSound = () => {
         console.log("Sound Loading Triggered");
         createjs.Sound.on("fileload", handleLoadComplete);
@@ -61,7 +73,9 @@
 <br><br>
 <button id="interactable-object" onclick="showNotification()">This plays sound</button>
 <br><br>
-<button id="interactable-object" onclick="loadNotificationSound()">This preloads sound</button>
+<button onclick="loadZeroVolumeNotificationSound()">This plays sound once at 0 volume</button>
+<br><br>
+<button onclick="loadNotificationSound()">This preloads sound</button>
 <br><br>
 <button>This does absolutely nothing</button>
 </body>
